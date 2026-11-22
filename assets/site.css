@@ -263,3 +263,24 @@ main:has(.contact-band)+.footer{border-top:0}
   .contact-cols{grid-template-columns:1fr;gap:22px}
   .email-big{font-size:24px}
 }
+
+/* Inner page header, matching the home intro band */
+.page-head{background:linear-gradient(180deg,var(--band) 0%,#fafbfc 100%);border-bottom:1px solid var(--line);padding:60px 0 52px}
+.page-head h1{font-size:clamp(34px,4.2vw,48px);line-height:1.1;letter-spacing:-.02em}
+.page-lead{max-width:62ch;margin:14px 0 0;font-size:18px;line-height:1.65;color:var(--text)}
+main>.page-head+.section{border-top:0}
+.gallery-page #photos .gallery-grid{margin-top:0}
+.card-grid+.card-grid{margin-top:20px}
+.copy>.callout:first-child{margin-top:0}
+@media(max-width:600px){.page-head{padding:36px 0 32px}.page-lead{font-size:16.5px}}
+.card-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:600px){.card-grid.two{grid-template-columns:1fr}}
+main>.section-tint:has(+.contact-band){background:#fff}
+/* Cards in a row share row heights, so labels, titles and footers line up */
+@supports (grid-template-rows:subgrid){
+  .card-grid{grid-auto-rows:auto}
+  .card{display:grid;grid-template-rows:subgrid;grid-row:span 3;row-gap:0;align-content:start}
+  .card:has(.card-foot){grid-row:span 4}
+  .card-foot{align-self:end}
+}
+.card-foot span{white-space:nowrap}
